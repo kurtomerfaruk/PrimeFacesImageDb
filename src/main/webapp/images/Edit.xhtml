@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+        <p:dialog id="ImagesEditDlg" widgetVar="ImagesEditDialog" modal="true" resizable="false"  appendTo="@(body)" header="#{messages.EditImagesTitle}" closeOnEscape="true">
+
+            <h:form id="ImagesEditForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid  columns="2" columnClasses="column" rendered="#{imagesController.selected != null}">
+
+
+                        <h:outputLabel value="#{messages.EditImagesLabel_id}" for="id" />
+                        <h:outputText id="id" value="#{imagesController.selected.id}" />
+
+                        <p:outputLabel value="#{messages.EditImagesLabel_name}" for="name" />
+                        <p:inputText id="name" value="#{imagesController.selected.name}" title="#{messages.EditImagesTitle_name}" required="true" requiredMessage="#{messages.EditImagesRequiredMessage_name}" size="145" maxlength="145"/>
+
+                        <p:outputLabel value="#{messages.EditImagesLabel_extension}" for="extension" />
+                        <p:inputText id="extension" value="#{imagesController.selected.extension}" title="#{messages.EditImagesTitle_extension}" size="45" maxlength="45"/>
+
+                        <p:outputLabel value="#{messages.EditImagesLabel_size}" for="size" />
+                        <p:inputText id="size" value="#{imagesController.selected.size}" title="#{messages.EditImagesTitle_size}" size="45" maxlength="45"/>
+
+                        <p:outputLabel value="#{messages.EditImagesLabel_image}" for="image" />
+                        <p:graphicImage id="image" value="#{fileUploadController.image}" title="#{messages.EditImagesTitle_image}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{imagesController.save}" value="#{messages.Save}" update="display,:ImagesListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,PF('ImagesEditDialog'));">
+                        <p:confirm header="#{messages.ConfirmationHeader}" message="#{messages.ConfirmEditMessage}" icon="ui-icon-alert"/>
+                    </p:commandButton>
+                    <p:commandButton value="#{messages.Cancel}" oncomplete="PF('ImagesEditDialog').hide()" update="display" process="@this" immediate="true" resetValues="true"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

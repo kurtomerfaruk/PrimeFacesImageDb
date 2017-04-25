@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pm="http://primefaces.org/mobile">
+
+    <pm:page id="ImagesViewPage" lazy="true">
+        <pm:header title="#{messages.ViewImagesTitle}">
+            <h:form>
+                <p:commandButton styleClass="ui-btn-left ui-btn-inline" value="#{messages.Cancel}" icon="ui-icon-arrow-l" action="#{mobilePageController.navigateBackInHistory('pm:ImagesListPage')}"/>
+            </h:form>
+        </pm:header>
+
+        <pm:content>
+
+            <h:form id="ImagesViewForm">
+
+                <h:panelGroup id="display">
+                    <p:outputPanel rendered="#{imagesController.selected != null}">
+
+                        <pm:field>
+                            <h:outputText value="#{messages.ViewImagesLabel_id}"/>
+                            <h:outputText value="#{imagesController.selected.id}" title="#{messages.ViewImagesTitle_id}"/>
+                        </pm:field>
+
+                        <pm:field>
+                            <h:outputText value="#{messages.ViewImagesLabel_name}"/>
+                            <h:outputText value="#{imagesController.selected.name}" title="#{messages.ViewImagesTitle_name}"/>
+                        </pm:field>
+
+                        <pm:field>
+                            <h:outputText value="#{messages.ViewImagesLabel_extension}"/>
+                            <h:outputText value="#{imagesController.selected.extension}" title="#{messages.ViewImagesTitle_extension}"/>
+                        </pm:field>
+
+                        <pm:field>
+                            <h:outputText value="#{messages.ViewImagesLabel_size}"/>
+                            <h:outputText value="#{imagesController.selected.size}" title="#{messages.ViewImagesTitle_size}"/>
+                        </pm:field>
+
+                        <pm:field>
+                            <h:outputText value="#{messages.ViewImagesLabel_image}"/>
+                            <h:outputText value="#{imagesController.selected.image}" title="#{messages.ViewImagesTitle_image}"/>
+                        </pm:field>
+                    </p:outputPanel>
+                </h:panelGroup>
+
+            </h:form>
+
+        </pm:content>
+
+    </pm:page>
+
+</ui:composition>

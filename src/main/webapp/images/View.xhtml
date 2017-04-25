@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ImagesViewDlg" widgetVar="ImagesViewDialog" modal="true" resizable="false"  appendTo="@(body)" header="#{messages.ViewImagesTitle}" closeOnEscape="true">
+
+            <h:form id="ImagesViewForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" columnClasses="column" rendered="#{imagesController.selected != null}">
+
+                        <h:outputText value="#{messages.ViewImagesLabel_id}"/>
+                        <h:outputText value="#{imagesController.selected.id}" title="#{messages.ViewImagesTitle_id}"/>
+
+                        <h:outputText value="#{messages.ViewImagesLabel_name}"/>
+                        <h:outputText value="#{imagesController.selected.name}" title="#{messages.ViewImagesTitle_name}"/>
+
+                        <h:outputText value="#{messages.ViewImagesLabel_extension}"/>
+                        <h:outputText value="#{imagesController.selected.extension}" title="#{messages.ViewImagesTitle_extension}"/>
+
+                        <h:outputText value="#{messages.ViewImagesLabel_size}"/>
+                        <h:outputText value="#{imagesController.selected.size}" title="#{messages.ViewImagesTitle_size}"/>
+
+                        <h:outputText value="#{messages.ViewImagesLabel_image}"/>
+                        <h:outputText value="#{imagesController.selected.image}" title="#{messages.ViewImagesTitle_image}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{messages.Close}" onclick="PF('ImagesViewDialog').hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

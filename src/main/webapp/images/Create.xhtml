@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ImagesCreateDlg" widgetVar="ImagesCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{messages.CreateImagesTitle}" closeOnEscape="true">
+
+            <h:form id="ImagesCreateForm">
+
+                <h:panelGroup id="display" rendered="#{imagesController.selected != null}">
+                    <p:panelGrid columns="2" columnClasses="column">
+
+                        <p:outputLabel value="#{messages.CreateImagesLabel_name}" for="name" />
+                        <p:inputText id="name" value="#{imagesController.selected.name}" title="#{messages.CreateImagesTitle_name}" required="true" requiredMessage="#{messages.CreateImagesRequiredMessage_name}" size="145" maxlength="145"/>
+
+                        <p:outputLabel value="#{messages.CreateImagesLabel_extension}" for="extension" />
+                        <p:inputText id="extension" value="#{imagesController.selected.extension}" title="#{messages.CreateImagesTitle_extension}" size="45" maxlength="45"/>
+
+                        <p:outputLabel value="#{messages.CreateImagesLabel_size}" for="size" />
+                        <p:inputText id="size" value="#{imagesController.selected.size}" title="#{messages.CreateImagesTitle_size}" size="45" maxlength="45"/>
+
+                        <p:outputLabel value="#{messages.CreateImagesLabel_image}" for="image" />
+                        <h:panelGroup>
+                            <p:graphicImage id="image" value="#{fileUploadController.image}" title="#{messages.CreateImagesTitle_image}" />
+                            <p:commandButton value="Clear" actionListener="#{fileUploadController.imageClear()}" update="image,:growl" process="@this"/>
+                        </h:panelGroup>
+                        
+                        <p:outputLabel value="File Upload"/>
+                        <p:fileUpload fileUploadListener="#{fileUploadController.fileUpload}" update="image" mode="advanced" auto="true" sizeLimit="100000" allowTypes="/(\.|\/)(gif|jpe?g|png)$/" />
+                        
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{imagesController.saveNew}" value="#{messages.Save}" update="display,:ImagesListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,PF('ImagesCreateDialog'));">
+                        <p:confirm header="#{messages.ConfirmationHeader}" message="#{messages.ConfirmCreateMessage}" icon="ui-icon-alert"/>
+                    </p:commandButton>
+
+                    <p:commandButton value="#{messages.Cancel}" oncomplete="PF('ImagesCreateDialog').hide()" update="display" process="@this" immediate="true" resetValues="true"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>
