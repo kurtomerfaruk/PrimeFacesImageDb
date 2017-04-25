@@ -31,7 +31,7 @@
                         </h:panelGroup>
                         
                         <p:outputLabel value="File Upload"/>
-                        <p:fileUpload fileUploadListener="#{fileUploadController.fileUpload}" update="image" mode="advanced" auto="true" sizeLimit="100000" allowTypes="/(\.|\/)(gif|jpe?g|png)$/" />
+                        <p:fileUpload fileUploadListener="#{fileUploadController.fileUpload}" update=":growl,display" mode="advanced" auto="true" allowTypes="/(\.|\/)(gif|jpe?g|png)$/" />
                         
                     </p:panelGrid>
                     <p:commandButton actionListener="#{imagesController.saveNew}" value="#{messages.Save}" update="display,:ImagesListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,PF('ImagesCreateDialog'));">
