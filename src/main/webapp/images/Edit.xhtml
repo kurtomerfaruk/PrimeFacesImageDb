@@ -28,7 +28,7 @@
                         <p:inputText id="size" value="#{imagesController.selected.size}" title="#{messages.EditImagesTitle_size}" size="45" maxlength="45"/>
 
                         <p:outputLabel value="#{messages.EditImagesLabel_image}" for="image" />
-                        <p:graphicImage id="image" value="#{fileUploadController.image}" title="#{messages.EditImagesTitle_image}" />
+                        <p:graphicImage id="image" value="#{fileUploadController.image}" title="#{messages.EditImagesTitle_image}" cache="false" width="150" height="150"/>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{imagesController.save}" value="#{messages.Save}" update="display,:ImagesListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,PF('ImagesEditDialog'));">
                         <p:confirm header="#{messages.ConfirmationHeader}" message="#{messages.ConfirmEditMessage}" icon="ui-icon-alert"/>

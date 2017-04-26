@@ -8,6 +8,7 @@ import javax.ejb.EJB;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
+import javax.faces.event.PhaseId;
 import javax.inject.Inject;
 import org.omnifaces.util.Utils;
 import org.primefaces.event.FileUploadEvent;
@@ -36,6 +37,12 @@ public class FileUploadController {
     }
 
     public StreamedContent getImage() {
+        FacesContext context = FacesContext.getCurrentInstance();
+
+         if (context.getCurrentPhaseId() == PhaseId.RENDER_RESPONSE) {
+            // So, we're rendering the HTML. Return a stub StreamedContent so that it will generate right URL.
+            return new DefaultStreamedContent();
+        } 
         return image;
     }
 
@@ -64,6 +71,7 @@ public class FileUploadController {
     
     public void imageClear(){
         image=null;
+        
     }
     
     public void findImage(Integer imageId) {

@@ -26,13 +26,13 @@
 
                         <p:outputLabel value="#{messages.CreateImagesLabel_image}" for="image" />
                         <h:panelGroup>
-                            <p:graphicImage id="image" value="#{fileUploadController.image}" title="#{messages.CreateImagesTitle_image}" />
+                            <p:graphicImage id="image" value="#{fileUploadController.image}" title="#{messages.CreateImagesTitle_image}" cache="false"/>
                             <p:commandButton value="Clear" actionListener="#{fileUploadController.imageClear()}" update="image,:growl" process="@this"/>
                         </h:panelGroup>
                         
                         <p:outputLabel value="File Upload"/>
-                        <p:fileUpload fileUploadListener="#{fileUploadController.fileUpload}" update=":growl,display" mode="advanced" auto="true" allowTypes="/(\.|\/)(gif|jpe?g|png)$/" />
-                        
+                        <p:fileUpload fileUploadListener="#{fileUploadController.fileUpload}" update="image,display" auto="true" mode="advanced" allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/>
+                       
                     </p:panelGrid>
                     <p:commandButton actionListener="#{imagesController.saveNew}" value="#{messages.Save}" update="display,:ImagesListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,PF('ImagesCreateDialog'));">
                         <p:confirm header="#{messages.ConfirmationHeader}" message="#{messages.ConfirmCreateMessage}" icon="ui-icon-alert"/>
