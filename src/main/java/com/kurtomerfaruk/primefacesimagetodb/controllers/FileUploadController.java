@@ -66,9 +66,8 @@ public class FileUploadController {
              images.setSize(String.valueOf(file.getSize()));
              images.setExtension(file.getContentType());
              imagesController.setSelected(images);
-            //imagesController.getSelected().setImage(Utils.toByteArray(new DefaultStreamedContent(file.getInputstream(), "image/jpeg").getStream()));
         } catch (Exception e) {
-            System.out.println("Resim yuklenirken hata olustu:" + e.getMessage());
+             System.out.println(e.getMessage());
         }
     }
     
