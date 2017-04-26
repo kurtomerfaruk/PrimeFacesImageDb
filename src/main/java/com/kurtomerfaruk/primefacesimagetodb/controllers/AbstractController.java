@@ -26,6 +26,13 @@ import javax.validation.ConstraintViolationException;
  *
  * @param <T> the concrete Entity type of the Controller bean to be created
  */
+/**
+ *
+ * @author Omer Faruk Kurt
+ * @Created on date 25/04/2017 16:31:47 
+ * @blog http://kurtomerfaruk.com
+ * @mail kurtomerfaruk@gmail.com 
+ */
 public abstract class AbstractController<T> implements Serializable {
 
     private static final long serialVersionUID = 1L;

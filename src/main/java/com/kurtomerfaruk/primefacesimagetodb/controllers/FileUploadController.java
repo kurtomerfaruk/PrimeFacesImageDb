@@ -19,7 +19,9 @@ import org.primefaces.model.UploadedFile;
 /**
  *
  * @author Omer Faruk Kurt
- * @Created on date 25/04/2017 16:37:27 
+ * @Created on date 25/04/2017 16:37:27  
+ * @blog http://kurtomerfaruk.com
+ * @mail kurtomerfaruk@gmail.com 
  */
 @ManagedBean
 @ApplicationScoped

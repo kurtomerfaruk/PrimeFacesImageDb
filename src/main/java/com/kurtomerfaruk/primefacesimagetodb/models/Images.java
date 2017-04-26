@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package com.kurtomerfaruk.primefacesimagetodb.models;
 
 import java.io.Serializable;
@@ -25,6 +19,8 @@ import javax.xml.bind.annotation.XmlRootElement;
  *
  * @author Omer Faruk Kurt
  * @Created on date 25/04/2017 16:29:02 
+ * @blog http://kurtomerfaruk.com
+ * @mail kurtomerfaruk@gmail.com
  */
 @Entity
 @Table(name = "images")

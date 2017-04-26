@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package com.kurtomerfaruk.primefacesimagetodb.services;
 
 import java.util.List;
@@ -18,6 +12,8 @@ import javax.persistence.criteria.Root;
  *
  * @author Omer Faruk Kurt
  * @Created on date 25/04/2017 16:31:47 
+ * @blog http://kurtomerfaruk.com
+ * @mail kurtomerfaruk@gmail.com 
  */
 public abstract class AbstractFacade<T> {
     private Class<T> entityClass;

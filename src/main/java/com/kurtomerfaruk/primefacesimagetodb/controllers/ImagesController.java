@@ -6,6 +6,14 @@ import javax.inject.Named;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 
+/**
+ *
+ * @author Omer Faruk Kurt
+ * @Created on date 25/04/2017 16:31:47 
+ * @blog http://kurtomerfaruk.com
+ * @mail kurtomerfaruk@gmail.com 
+ */
+
 @Named(value = "imagesController")
 @ViewScoped
 public class ImagesController extends AbstractController<Images> {
